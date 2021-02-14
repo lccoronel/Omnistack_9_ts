@@ -6,8 +6,8 @@ interface RequestProps {
   email: string;
 }
 
-export default {
-  async create(request: Request, response: Response): Promise<Response> {
+class SeesionCOntroller {
+  public async create(request: Request, response: Response): Promise<Response> {
     const { email } = request.body as RequestProps;
 
     let user = await User.findOne({ email });
@@ -17,5 +17,7 @@ export default {
     }
 
     return response.json(user);
-  },
-};
+  }
+}
+
+export default SeesionCOntroller;
